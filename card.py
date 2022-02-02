@@ -18,7 +18,13 @@ class Card:
                 
     def show(self):
         if self.is_special():
-            print(f"{Card.SPECIAL_CARDS_MEANING[self._value]} of {self._suit.symbol}")
+            return (f"{Card.SPECIAL_CARDS_MEANING[self._value]} of {self._suit.symbol}")
         else:
-            print(f"{self._value} of {self._suit.symbol} ")
+            return (f"{self._value} of {self._suit.symbol} ")
+
+    # def __repr__(self):
+    #     return self.show()
+    #
+    # def __str__(self):
+    #     return self.show()
 

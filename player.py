@@ -16,7 +16,7 @@ class Player:
         return self._deck
 
     def has_empty_deck(self):
-        return len(self._deck) == 0
+        return self._deck.size == 0
 
     def draw_card(self):
         if self._deck.size:
