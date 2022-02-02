@@ -28,7 +28,30 @@ if __name__ == '__main__':
         c2 = p2.deck.draw()
         if c1.value == c2.value:
             print(f"WAR started for {c1.show()} and {c2.show()} !!!")
-            raise NotImplementedError("War star")
+            cardsToBeFaceDown = []
+            cardsFaceUp = []
+            while True:
+                for i in range(3):
+                    cardsToBeFaceDown.append(p1.draw_card())
+                    cardsToBeFaceDown.append(p2.draw_card())
+                cardsFaceUp.append(p1.draw_card())
+                cardsFaceUp.append(p2.draw_card())
+                try:
+                    if cardsFaceUp[-2].value > cardsFaceUp[-1].value:
+                        resultMessage = f"{p1.name} wins round {no_rounds}"
+                        for card in (cardsToBeFaceDown + cardsFaceUp):
+                            p1.add_card(card)
+                        break
+                    elif cardsFaceUp[-2].value < cardsFaceUp[-1].value:
+                        resultMessage = f"{p2.name} wins round {no_rounds}"
+                        for card in (cardsToBeFaceDown + cardsFaceUp):
+                            p2.add_card(card)
+                        break
+                    else:
+                        print(f"WAR !!! started for {cardsFaceUp[-2].show()} and {cardsFaceUp[-1].show()}")
+                except Exception as e:
+                    print("Exception in code !!!")
+
         elif c1.value > c2.value:
             resultMessage = f"{p1.name} wins round {no_rounds}"
             p1.add_card(c1)
