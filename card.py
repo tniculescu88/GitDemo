@@ -1,5 +1,6 @@
 from suit import Suit
 
+
 class Card:
 
     SPECIAL_CARDS_MEANING = {11:"Jack", 12:"Queen", 13:"King", 14:"Ace"}

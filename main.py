@@ -3,18 +3,18 @@ from player import Player
 from deck import Deck
 
 if __name__ == '__main__':
-    d1 = Deck(52)
-    d1.build()
-    # d1.show()
+    # creating the bigDeck of all cards
+    bigDeck = Deck(is_empty=False)
     print("Shuffling the cards")
-    d1.shuffle()
-    print(f"len(d1.cards) = {len(d1.cards)}   len(d1._cards) = {len(d1._cards)}")
-    assert len(d1.cards) == 52, "len(d1.cards) should be 52 and it is {%s}"%(len(d1.cards))
-    # d1.show()
+    bigDeck.shuffle()
+
+    # creating 2 players
     print("Creating the players and distributing the cards to each player")
-    p1 = Player("Player1", d1, False)
-    p2 = Player("Computer", d1, True)
-    p1.show_cards()
-    p2.show_cards()
-    # while p1.has_empty_deck() or p2.has_empty_deck():
-    #     break
+    p1 = Player("Player1", Deck(is_empty=True), is_computer=False)
+    p2 = Player("Computer", Deck(is_empty=True), is_computer=True)
+    # distributing the cards from the bigDeck to the 2 players
+    for cardIndex in range(int(52/2+1)):
+        p1.add_card(bigDeck.draw())
+        p2.add_card(bigDeck.draw())
+
+    print("Will continue")

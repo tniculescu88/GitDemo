@@ -35,7 +35,6 @@ class Deck:
             return self._cards.pop()
         else:
             return None
-        
 
     def add(self, card):
         self._cards.insert(0,card)

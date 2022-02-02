@@ -1,4 +1,6 @@
 from deck import Deck
+
+
 class Player:
     def __init__(self, name, deckObj, is_computer=False):
         self._name = name
@@ -23,8 +25,5 @@ class Player:
             return None
     
     def add_card(self, card):
-        self._deck.add()
-
-
-    
-        
+        if card:
+            self._deck.add(card)
